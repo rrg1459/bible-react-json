@@ -1,0 +1,35 @@
+.sender {
+  color: #000;
+
+  .testament,
+  .book {
+    width: 300px;
+
+    .name {
+      margin-top: 20px;
+    }
+  }
+
+  .chapter,
+  .verse {
+
+    .name {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .current {
+      background-color: #eac7f5;
+      font-size: 20px;
+      width: 35px;
+      height: 35px;
+    }
+
+    .rest {
+      font-size: 18px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+}
