@@ -11,26 +11,26 @@
     height: 100vh;
   }
 
-  .div1 {
+  .verses {
     grid-row: span 2 / span 2;
     // background-color: aqua;
     // margin: 10px 5px 10px 10px;
   }
   
-  .div2 {
+  .books {
     grid-column: span 2 / span 2;
     // background-color: tomato;
     // margin: 10px 10px 5px 5px
   }
 
-  .div3 {
+  .numChaptesrs {
     grid-column-start: 2;
     grid-row-start: 2;
     // background-color: green;
     // margin: 5px 5px 10px 5px;
   }
 
-  .div4 {
+  .numVerses {
     grid-column-start: 3;
     grid-row-start: 2;
     // background-color: yellowgreen;

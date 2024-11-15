@@ -8,16 +8,16 @@ const Show = () => {
   return (
     <div className="show">
       <div class="parent">
-        <div class="div1">
+        <div class="verses">
           <Verses />
         </div>
-        <div class="div2">
+        <div class="books">
           <Books />
         </div>
-        <div class="div3">
+        <div class="numChapters">
           <NumChapters />
         </div>
-        <div class="div4">
+        <div class="numVerses">
         <NumVerses />
         </div>
       </div>
