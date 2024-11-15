@@ -7,17 +7,17 @@ import './show.scss';
 const Show = () => {
   return (
     <div className="show">
-      <div class="parent">
-        <div class="verses">
+      <div className="parent">
+        <div className="verses">
           <Verses />
         </div>
-        <div class="books">
+        <div className="books">
           <Books />
         </div>
-        <div class="numChapters">
+        <div className="numChapters">
           <NumChapters />
         </div>
-        <div class="numVerses">
+        <div className="numVerses">
         <NumVerses />
         </div>
       </div>

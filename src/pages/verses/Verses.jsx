@@ -4,8 +4,8 @@ const Verses = () => {
   return (
     <div className="verses">
       {/* <div className="main"> */}
-        <div class="first">First</div>
-        <div class="second">Second</div>
+        <div className="first">First</div>
+        <div className="second">Second</div>
       {/* </div> */}
     </div>
   );
