@@ -6,7 +6,13 @@ const Book = (props) => {
 
   return (
     <div className="book">
-      {book.abbreviation}
+      <div className="abbreviation">
+        {book.abbreviation}
+      </div>
+      <div className="label">
+        {book.label}
+      </div>
+
     </div>
   );
 };

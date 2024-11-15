@@ -2,4 +2,18 @@
   background-color: #fbeeff;
   color: #000;
   border: 0.5px solid gainsboro;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+  .abbreviation {
+    font-size: 1.5vw;
+  }
+
+  .label {
+    padding-top: 5px;
+    font-size: 0.7vw;
+  }
 }
