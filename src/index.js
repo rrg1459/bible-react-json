@@ -13,7 +13,7 @@ import Receiver from './pages/receiver/Receiver.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Read />,
+    element: <Show />,
   },
   {
     path: "/home",

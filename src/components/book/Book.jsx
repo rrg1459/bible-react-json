@@ -1,3 +1,5 @@
+import { types } from '../../bible/types';
+
 import './book.scss';
 
 const Book = (props) => {
@@ -5,15 +7,18 @@ const Book = (props) => {
   const book = props.book;
 
   return (
-    <div className="book">
-      <div className="abbreviation">
-        {book.abbreviation}
-      </div>
-      <div className="label">
-        {book.label}
-      </div>
-
-    </div>
+    <>
+      {types && (
+        <div className={`book ${types[book.type_id - 1].label}`}>
+          <div className="abbreviation">
+            {book.abbreviation}
+          </div>
+          <div className="label">
+            {book.label}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
