@@ -84,7 +84,7 @@ export const books = [
       "testament_id": 1,
       "type_id": 2,
       "label": "1 Reyes",
-      "abbreviation": "1R",
+      "abbreviation": "1Re",
       "chapters": 22
     },
     {
@@ -92,7 +92,7 @@ export const books = [
       "testament_id": 1,
       "type_id": 2,
       "label": "2 Reyes",
-      "abbreviation": "2R",
+      "abbreviation": "2Re",
       "chapters": 25
     },
     {
@@ -164,15 +164,15 @@ export const books = [
       "testament_id": 1,
       "type_id": 3,
       "label": "Eclesiastés",
-      "abbreviation": "Ec",
+      "abbreviation": "Ecl",
       "chapters": 12
     },
     {
       "id": 22,
       "testament_id": 1,
       "type_id": 3,
-      "label": "Cantar de los Cantares",
-      "abbreviation": "Cnt",
+      "label": "Cantares",
+      "abbreviation": "Cant",
       "chapters": 8
     },
     {
@@ -236,7 +236,7 @@ export const books = [
       "testament_id": 1,
       "type_id": 4,
       "label": "Amós",
-      "abbreviation": "Amo",
+      "abbreviation": "Am",
       "chapters": 9
     },
     {
@@ -380,7 +380,7 @@ export const books = [
       "testament_id": 2,
       "type_id": 7,
       "label": "Gálatas",
-      "abbreviation": "Ga",
+      "abbreviation": "Gal",
       "chapters": 6
     },
     {
@@ -412,7 +412,7 @@ export const books = [
       "testament_id": 2,
       "type_id": 7,
       "label": "1 Tesalonicenses",
-      "abbreviation": "1Ts",
+      "abbreviation": "1Tes",
       "chapters": 5
     },
     {
@@ -420,7 +420,7 @@ export const books = [
       "testament_id": 2,
       "type_id": 7,
       "label": "2 Tesalonicenses",
-      "abbreviation": "2Ts",
+      "abbreviation": "2Tes",
       "chapters": 3
     },
     {
@@ -428,7 +428,7 @@ export const books = [
       "testament_id": 2,
       "type_id": 7,
       "label": "1 Timoteo",
-      "abbreviation": "1Ti",
+      "abbreviation": "1Tim",
       "chapters": 6
     },
     {
@@ -436,7 +436,7 @@ export const books = [
       "testament_id": 2,
       "type_id": 7,
       "label": "2 Timoteo",
-      "abbreviation": "2Ti",
+      "abbreviation": "2Tim",
       "chapters": 4
     },
     {
