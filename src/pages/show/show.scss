@@ -1,4 +1,41 @@
 .show {
   background-color: #fbeeff;
   color: #000;
+
+  .parent {
+    display: grid;
+    grid-template-columns:30% 35% 35%;
+    grid-template-rows: 55% 45%;
+    // gap: 8px;
+    // height: 90%;
+    height: 100vh;
+  }
+
+  .div1 {
+    grid-row: span 2 / span 2;
+    // background-color: aqua;
+    // margin: 10px 5px 10px 10px;
+  }
+  
+  .div2 {
+    grid-column: span 2 / span 2;
+    // background-color: tomato;
+    // margin: 10px 10px 5px 5px
+  }
+
+  .div3 {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    // background-color: green;
+    // margin: 5px 5px 10px 5px;
+  }
+
+  .div4 {
+    grid-column-start: 3;
+    grid-row-start: 2;
+    // background-color: yellowgreen;
+    // margin: 5px 10px 10px 5px;
+  }
+
+
 }

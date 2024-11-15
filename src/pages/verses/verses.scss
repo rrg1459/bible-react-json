@@ -1,0 +1,22 @@
+.verses {
+  // background-color: rgb(186, 186, 247);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .first {
+    height: 50px;
+    background: #b2efd8;
+    // border: 1px solid red;
+    margin: 10px 5px 0 10px;
+
+  }
+
+  .second {
+    flex-grow: 1;
+    background: #5ee1ec;
+    // border: 1px solid red;
+    margin: 0 5px 10px 10px;
+  }
+
+}
