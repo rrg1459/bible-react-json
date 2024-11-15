@@ -23,24 +23,40 @@ function Sender() {
     { id: 2, label: "Nuevo Testamento" }
   ];
 
+  useKeyPress("ArrowRight", onKeyPress);
+  useKeyPress("ArrowLeft", onKeyPress);
   useKeyPress("ArrowUp", onKeyPress);
+  useKeyPress("ArrowDown", onKeyPress);
+  useKeyPress("PageUp", onKeyPress);
+  useKeyPress("PageDown", onKeyPress);
   useKeyPress("d", onKeyPress);
   useKeyPress("D", onKeyPress);
 
   function onKeyPress(e) {
     e.preventDefault();
     setActiveKey(e.key);
-    console.log('xxx e.key-->: ', e.key);
     setTimeout(() => {
       setActiveKey("");
     }, 0);
   }
 
   useEffect(() => {
-    console.log('xxx activeKey-->: ', activeKey);
+    if (!currentVerse) return; // Early return if data not loaded
+    const forward = ['ArrowRight', 'ArrowDown', 'PageDown'];
+    const backward = ['ArrowLeft', 'ArrowUp', 'PageUp'];
+    if (forward.includes(activeKey) && currentVerse.verse < selectVerses.length) {
+      setCurrentVerse(selectVerses[currentVerse.verse]);
+    }
+    if (backward.includes(activeKey) && currentVerse.verse > 1) {
+      setCurrentVerse(selectVerses[currentVerse.verse - 2]);
+    }
+  }, [activeKey, currentVerse, selectVerses])
+
+  useEffect(() => {
+    if (!activeKey) return; // Early return if data not loaded
     localStorage.removeItem('quote');
- 
-   }, [activeKey])
+
+  }, [activeKey])
 
   const handleChangeTestament = testament => {
     setTestament(testament);
@@ -71,7 +87,6 @@ function Sender() {
   };
 
   useEffect(() => {
-
     if (!selectVerses) return; // Early return if data not loaded
     setNumVerses([...Array(selectVerses.length)].map((v, i) => i + 1));
   }, [selectVerses])
