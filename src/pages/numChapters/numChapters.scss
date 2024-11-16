@@ -1,13 +1,27 @@
 .num-chapters {
-  // background-color: green;
+  // background-color: greenyellow;
   display: flex;
   flex-direction: column;
   height: 100%;
-  
+
   .main {
     flex-grow: 1;
-    background:#92ffd5;
     // border: 1px solid black;
-    margin: 5px 5px 10px 5px;
+    margin: 5px 10px 10px 5px;
+    
+    .grid-container {
+      display: grid;
+      height: 100%;
+      gap: 5px;
+      
+      .chapters {
+        display: flex;
+        justify-content: center;
+        background:#92ffd5;
+        // background: #525eff;
+        border: 2px solid pink;
+        align-items: center;
+      }
+    }
   }
 }

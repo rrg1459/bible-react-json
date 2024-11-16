@@ -16,7 +16,7 @@ const Show = () => {
           <Books />
         </div>
         <div className="num-chapters">
-          <NumChapters />
+          <NumChapters numChapters={15}/>
         </div>
         <div className="num-verses">
           <NumVerses numVerses={16} />
