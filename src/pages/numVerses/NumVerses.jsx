@@ -27,7 +27,7 @@ const NumVerses = (props) => {
   `;
 
   return (
-    <div className="numVerses">
+    <div className="num-verses">
       <div className="main">
         <GridContainer column={column} row={row} className="grid-container">
           {verses?.map((x) => <div key={x} className='number'>{x}</div>)}

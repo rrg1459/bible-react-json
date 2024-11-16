@@ -15,10 +15,10 @@ const Show = () => {
         <div className="books">
           <Books />
         </div>
-        <div className="numChapters">
+        <div className="num-chapters">
           <NumChapters />
         </div>
-        <div className="numVerses">
+        <div className="num-verses">
           <NumVerses numVerses={16} />
         </div>
       </div>
