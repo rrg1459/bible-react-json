@@ -30,7 +30,7 @@ const NumVerses = (props) => {
     <div className="num-verses">
       <div className="main">
         <GridContainer column={column} row={row} className="grid-container">
-          {verses?.map((x) => <div key={x} className='number'>{x}</div>)}
+          {verses?.map((x) => <div key={x} className='versess'>{x}</div>)}
         </GridContainer>
       </div>
     </div>
