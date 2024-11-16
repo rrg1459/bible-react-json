@@ -5,6 +5,7 @@ import NumVerses from "../numVerses/NumVerses.jsx"
 import './show.scss';
 
 const Show = () => {
+
   return (
     <div className="show">
       <div className="parent">
@@ -18,7 +19,7 @@ const Show = () => {
           <NumChapters />
         </div>
         <div className="numVerses">
-        <NumVerses />
+          <NumVerses numVerses={16} />
         </div>
       </div>
     </div>
