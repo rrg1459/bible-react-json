@@ -3,8 +3,14 @@ import Books from "../books/Books.jsx"
 import NumChapters from "../numChapters/NumChapters.jsx"
 import NumVerses from "../numVerses/NumVerses.jsx"
 import './show.scss';
+import { useSelector } from "react-redux";
 
 const Show = () => {
+
+  const { book, verses, chapter, verse } = useSelector((state) => state.quote);
+
+  console.log('xxx chapter-->: ', chapter);
+  console.log('xxx verse-->: ', verse);
 
   return (
     <div className="show">
@@ -16,10 +22,10 @@ const Show = () => {
           <Books />
         </div>
         <div className="num-chapters">
-          <NumChapters numChapters={15}/>
+          <NumChapters numChapters={book.chapters} />
         </div>
         <div className="num-verses">
-          <NumVerses numVerses={16} />
+          <NumVerses numVerses={verses.length} />
         </div>
       </div>
     </div>
