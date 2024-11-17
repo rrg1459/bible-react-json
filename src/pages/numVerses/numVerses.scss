@@ -17,9 +17,17 @@
       .versess {
         display: flex;
         justify-content: center;
-        background: #525eff;
+        background: #7982ff;
+        color: rgb(255, 229, 195);
         // border: 1px solid pink;
         align-items: center;
+        font-size: 1.8vw;
+
+        &:hover {
+          filter: brightness(80%);
+          cursor: pointer;
+          transition: 0.4s;
+        }
       }
     }
   }

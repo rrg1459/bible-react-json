@@ -20,34 +20,81 @@
 }
 
 .pentateuch {
-  background-color: yellow;
+  background-color: rgba(165, 42, 42, 0.699);
+
+  &:hover {
+    filter: brightness(80%);
+    cursor: pointer;
+    transition: 0.4s;
+  }
 }
 
 .historical {
-  background-color: blue;
+  background-color: #e08b63;
+
+  &:hover {
+    filter: brightness(85%);
+    cursor: pointer;
+    transition: 0.4s;
+  }
 }
 
 .poetic {
-  background-color: red;
+  background-color: #FFD700;
+
+  &:hover {
+    filter: brightness(85%);
+    cursor: pointer;
+    transition: 0.4s;
+  }
 }
 
 .prophetic {
-  background-color: green;
-  background-color: sk
+  background-color: rgb(59, 255, 59);
+
+  &:hover {
+    filter: brightness(85%);
+    cursor: pointer;
+    transition: 0.4s;
+  }
 }
 
 .gospels {
-  background-color: pink;
+  background-color: rgb(255, 255, 73);
+
+  &:hover {
+    filter: brightness(85%);
+    cursor: pointer;
+    transition: 0.4s;
+  }
 }
 
 .facts {
-  background-color: tomato;
+  background-color: #2e90fa;
+
+  &:hover {
+    filter: brightness(80%);
+    cursor: pointer;
+    transition: 0.4s;
+  }
 }
 
 .letters {
-  background-color: aqua;
+  background-color: rgb(6, 238, 238);
+
+  &:hover {
+    filter: brightness(85%);
+    cursor: pointer;
+    transition: 0.4s;
+  }
 }
 
 .revelations {
-  background-color: skyblue;
+  background-color: rgb(255, 89, 59);
+
+  &:hover {
+    filter: brightness(85%);
+    cursor: pointer;
+    transition: 0.4s;
+  }
 }

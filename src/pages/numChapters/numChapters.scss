@@ -8,19 +8,27 @@
     flex-grow: 1;
     // border: 1px solid black;
     margin: 5px 10px 10px 5px;
-    
+
     .grid-container {
       display: grid;
       height: 100%;
       gap: 5px;
-      
+
       .chapters {
         display: flex;
         justify-content: center;
-        background:#92ffd5;
+        background: #92ffd5;
+        color: rgb(41, 20, 20);
         // background: #525eff;
         border: 2px solid pink;
         align-items: center;
+        font-size: 2vw;
+
+        &:hover {
+          filter: brightness(85%);
+          cursor: pointer;
+          transition: 0.4s;
+        }
       }
     }
   }
