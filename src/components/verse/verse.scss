@@ -1,8 +1,15 @@
 .verse {
-  margin-bottom: 7px;
-        font-size: 1.1vw;
+  background: #5ee1ec;
+  padding-bottom: 7px;
+  font-size: 1.1vw;
 
+  &:hover {
+    filter: brightness(80%);
+    cursor: pointer;
+    transition: 0.4s;
+  }
 }
+
 .current-verse {
   background-color: greenyellow;
   font-size: 1.2vw;

@@ -2,8 +2,14 @@ import styled from 'styled-components';
 
 import './numChapters.scss';
 import { useEffect, useState } from 'react';
+import { changeVerses, updateQuote } from '../../redux/quoteSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { verses } from '../../bible/verses';
 
 const NumChapters = (props) => {
+
+  const dispatch = useDispatch();
+  const { quote } = useSelector((state) => state);
 
   const [column, setColumn] = useState(null);
   const [row, setRow] = useState(null);
@@ -28,7 +34,16 @@ const NumChapters = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('xxx current chapter-->: ', e.target.innerText);
+    const chapter = Number(e.target.innerText);
+    const selectVerses = verses.filter((v) => v.book_id === quote.book.id && v.chapter === chapter);
+
+    dispatch(changeVerses(selectVerses));
+    dispatch(updateQuote({
+      ...quote,
+      chapter,
+      verse: 0
+    }))
+
   }
 
   return (

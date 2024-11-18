@@ -1,8 +1,36 @@
+import { useDispatch, useSelector } from 'react-redux';
 import './verse.scss';
+import { updateQuote } from '../../redux/quoteSlice';
+import { useEffect, useState } from 'react';
 
 const Verse = (props) => {
 
+  const dispatch = useDispatch();
+  const { quote } = useSelector((state) => state);
   const { currentVerse, verse, index } = props;
+  const [numVerse, setNumverse] = useState(null);
+
+  useEffect(() => {
+    setNumverse(index + 1);
+  }, [index])
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // const numVerse = index + 1;
+    dispatch(updateQuote({
+      ...quote,
+      verse: numVerse,
+      text:  currentVerse.text
+    }))
+    localStorage.setItem('quote', JSON.stringify(
+      {
+        'book': quote.book.label,
+        'chapter': quote.chapter,
+        'verse': numVerse,
+        'text': currentVerse.text
+      }
+    ));
+  };
 
   // const scrollToImportantText = () => {
     // const importantText = document.getElementById('3333');
@@ -10,7 +38,10 @@ const Verse = (props) => {
   // }
 
   return (
-    <div className={`verse ${(verse === index + 1) ? 'current-verse' : ''}`} >
+    <div
+      className={`${(verse === index + 1) ? 'current-verse' : 'verse'}`}
+      onClick={handleSubmit}
+      >
       {index + 1}. {currentVerse.text}
     </div>
   );

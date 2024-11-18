@@ -6,7 +6,9 @@ import { verses } from "../../bible/verses"
 import { updateQuote, changeVerses } from "../../redux/quoteSlice";
 
 const FirstQuote = () => {
+
   const dispatch = useDispatch();
+
   useEffect(() => {
     const getRandomVerse = async () => {
       // Handle potential missing data using a fallback or error handling
