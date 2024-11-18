@@ -2,8 +2,13 @@ import styled from 'styled-components';
 
 import './numVerses.scss';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateQuote } from "../../redux/quoteSlice";
 
 const NumVerses = (props) => {
+
+  const dispatch = useDispatch();
+  const { quote } = useSelector((state) => state);
 
   const [column, setColumn] = useState(null);
   const [row, setRow] = useState(null);
@@ -28,8 +33,12 @@ const NumVerses = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('xxx current verse-->: ', e.target.innerText);
-  }
+    const verse = Number(e.target.innerText);
+    dispatch(updateQuote({
+      ...quote,
+      verse
+    }))
+  };
 
   return (
     <div className="num-verses">
