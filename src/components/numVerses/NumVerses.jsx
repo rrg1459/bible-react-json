@@ -26,11 +26,24 @@ const NumVerses = (props) => {
     grid-template-rows: repeat(${(props) => props.row}, 1fr);
   `;
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('xxx current verse-->: ', e.target.innerText);
+  }
+
   return (
     <div className="num-verses">
       <div className="main">
         <GridContainer column={column} row={row} className="grid-container">
-          {verses?.map((x) => <div key={x} className={`verse ${x=== props.verse ? 'selected-verse' : ''}`}>{x}</div>)}
+          {verses?.map((x) =>
+            <div
+              key={x}
+              className={`verse ${x === props.verse ? 'selected-verse' : ''}`}
+              onClick={handleSubmit}
+            >
+              {x}
+            </div>)
+          }
         </GridContainer>
       </div>
     </div>

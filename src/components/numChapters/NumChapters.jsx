@@ -26,11 +26,23 @@ const NumChapters = (props) => {
     grid-template-rows: repeat(${(props) => props.row}, 1fr);
   `;
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('xxx current chapter-->: ', e.target.innerText);
+  }
+
   return (
     <div className="num-verses">
       <div className="main">
         <GridContainer column={column} row={row} className="grid-container">
-          {chapters?.map((x) => <div key={x} className={`chapter ${x=== props.chapter ? 'selected-chapter' : ''}`}>{x}</div>)}
+          {chapters?.map((x) =>
+            <div
+              key={x} 
+              className={`chapter ${x=== props.chapter ? 'selected-chapter' : ''}`}
+              onClick={handleSubmit}
+            >
+              {x}
+            </div>)}
         </GridContainer>
       </div>
     </div>
