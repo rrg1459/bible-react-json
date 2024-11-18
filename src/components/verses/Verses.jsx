@@ -5,7 +5,7 @@ import Verse from "../verse/Verse"
 
 const Verses = () => {
 
-  // salm 119
+  // salm 119. 50
   const { book, chapter, verses, verse } = useSelector((state) => state.quote);
 
   return (

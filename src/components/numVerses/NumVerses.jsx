@@ -34,10 +34,20 @@ const NumVerses = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const verse = Number(e.target.innerText);
+    const text = quote.verses[verse - 1].text;
     dispatch(updateQuote({
       ...quote,
-      verse
+      verse,
+      text
     }))
+    localStorage.setItem('quote', JSON.stringify(
+      {
+        'book': quote.book.label,
+        'chapter': quote.chapter,
+        'verse': verse,
+        'text': text
+      }
+    ));
   };
 
   return (
