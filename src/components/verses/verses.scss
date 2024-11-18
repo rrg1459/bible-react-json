@@ -7,9 +7,9 @@
   .first {
     height: 50px;
     background: #b2efd8;
-    // border: 1px solid red;
+    text-align: center;
+    font-size: 2vw;
     margin: 10px 5px 0 10px;
-
   }
 
   .second {
@@ -17,6 +17,6 @@
     background: #5ee1ec;
     // border: 1px solid red;
     margin: 0 5px 10px 10px;
+    overflow: auto;
   }
-
 }
