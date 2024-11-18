@@ -22,7 +22,6 @@ const FirstQuote = () => {
       const selectVerses = verses.filter((v) => v.book_id === book.id && v.chapter === verse.chapter);
 
       dispatch(updateQuote({
-        id: verse.id,
         book: {
           id: book.id,
           testament,
