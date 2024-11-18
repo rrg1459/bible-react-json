@@ -51,8 +51,6 @@ const Read = () => {
 
   function onKeyPress(e) {
     e.preventDefault();
-    console.log('xxx e.key-->: ', e.key);
-    console.log('xxx e.key typeof -->: ', typeof (e.key));
     setActiveKey(e.key);
     setTimeout(() => {
       setActiveKey("");
