@@ -98,3 +98,8 @@
     transition: 0.4s;
   }
 }
+
+.selected-book {
+  filter: brightness(70%);
+  border: 4px outset rgb(102, 255, 0);
+}
