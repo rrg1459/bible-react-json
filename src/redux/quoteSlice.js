@@ -1,16 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  id: 0,
   "book": {
+    id: 0,
     testament: "",
     label: "",
     abbreviation: "",
     chapters: 0,
     type: ""
   },
-  "chapter": 0,
-  "verse": 0,
-  "text": "",
+  chapter: 0,
+  verse: 0,
+  text: "",
   verses: []
 };
 
@@ -19,7 +21,8 @@ export const quoteSlice = createSlice({
   initialState,
   reducers: {
     updateQuote: (state, action) => {
-      const { book, chapter, verse, text } = action.payload;
+      const { id, book, chapter, verse, text } = action.payload;
+      state.id = id;
       state.book = book;
       state.chapter = chapter;
       state.verse = verse;
