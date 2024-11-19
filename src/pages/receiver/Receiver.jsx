@@ -5,7 +5,7 @@ import './receiver.scss';
 
 function Receiver() {
 
-  const [vers, setVers] = useState(JSON.parse(localStorage.getItem('quote')) || {});
+  const [verse, setVerse] = useState(JSON.parse(localStorage.getItem('quote')) || {});
 
   const [activeKey, setActiveKey] = useState("");
   const [idxActual, setIdxActual] = useState(null);
@@ -14,11 +14,13 @@ function Receiver() {
 
   // Update displayed verse when verse number changes
   useEffect(() => {
+    if (verse?.text === undefined) return;
+
     // if (!vers.length) return; // Early return if no verses
     setIdxActual(null);
-    setActualVerse(vers?.text.split(' ') || ''); // Use optional chaining for safety
-    setLengthVerse(vers?.text.split(' ').length);
-  }, [vers]);
+    setActualVerse(verse?.text.split(' ') || ''); // Use optional chaining for safety
+    setLengthVerse(verse?.text.split(' ').length);
+  }, [verse]);
 
   useKeyPress("ArrowRight", onKeyPress);
   useKeyPress("ArrowLeft", onKeyPress);
@@ -47,22 +49,28 @@ function Receiver() {
   }, [activeKey, idxActual, lengthVerse])
 
   window.addEventListener('storage', (event) => {
-    if (event.key === 'quote') setVers(JSON.parse(event.newValue));
+    if (event.key === 'quote') setVerse(JSON.parse(event.newValue));
   });
 
   return (
     <>
-      <div className={"receiver"}>
-        <h2 className={actualVerse?.length === idxActual ? 'italic' : ''}>{actualVerse && (
-          actualVerse.map((item, idx) => {
-            return (
-              <span className={idx === idxActual ? 'actual' : 'letter'} key={idx}>{item} </span>
-            )
-          })
-        )}
-        </h2>
-      </div>
-      <h1 className="centrar">{vers?.book} {vers?.chapter}:{vers?.verse}</h1>
+      {verse?.text === undefined ?
+        <h3 className='centrar'>Verse with problems</h3>
+        :
+        <>
+          <div className={"receiver"}>
+            <h2 className={actualVerse?.length === idxActual ? 'italic' : ''}>{actualVerse && (
+              actualVerse.map((item, idx) => {
+                return (
+                  <span className={idx === idxActual ? 'actual' : 'letter'} key={idx}>{item} </span>
+                )
+              })
+            )}
+            </h2>
+          </div>
+          <h1 className="centrar">{verse?.book} {verse?.chapter}:{verse?.verse}</h1>
+        </>
+      }
     </>
   );
 }
