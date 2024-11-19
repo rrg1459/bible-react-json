@@ -7,7 +7,9 @@ import './show.scss';
 
 const Show = () => {
 
-  const { book, verses, chapter, verse } = useSelector((state) => state.quote);
+  const selectQuote = (state) => state.quote;
+
+  const { book, verses, chapter, verse } = useSelector(selectQuote);
 
   return (
     <div className="show">

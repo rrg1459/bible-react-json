@@ -7,7 +7,8 @@ const Verses = () => {
 
   // salm 119. 50. 35.
 
-  const { book, chapter, verses, verse } = useSelector((state) => state.quote);
+  const selectQuote = (state) => state.quote;
+  const { book, chapter, verses, verse } = useSelector(selectQuote);
 
   return (
     <div className="verses">

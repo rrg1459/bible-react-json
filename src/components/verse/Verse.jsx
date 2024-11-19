@@ -6,7 +6,8 @@ import { useEffect, useState } from 'react';
 const Verse = (props) => {
 
   const dispatch = useDispatch();
-  const { quote } = useSelector((state) => state);
+  const selectQuote = (state) => state.quote;
+  const { book, chapter } = useSelector(selectQuote);
   const { currentVerse, verse, index } = props;
   const [numVerse, setNumverse] = useState(null);
 
@@ -18,14 +19,15 @@ const Verse = (props) => {
     e.preventDefault();
     // const numVerse = index + 1;
     dispatch(updateQuote({
-      ...quote,
+      book,
+      chapter,
       verse: numVerse,
       text:  currentVerse.text
     }))
     localStorage.setItem('quote', JSON.stringify(
       {
-        'book': quote.book.label,
-        'chapter': quote.chapter,
+        'book': book.label,
+        'chapter': chapter,
         'verse': numVerse,
         'text': currentVerse.text
       }

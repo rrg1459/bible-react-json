@@ -5,20 +5,25 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateQuote } from "../../redux/quoteSlice";
 
+const GridContainer = styled.div`
+grid-template-columns: repeat(${(props) => props.column}, 1fr);
+grid-template-rows: repeat(${(props) => props.row}, 1fr);
+`;
+
 const NumVerses = (props) => {
 
   const dispatch = useDispatch();
-  const { quote } = useSelector((state) => state);
-
+  const selectQuote = (state) => state.quote;
+  const { book, chapter, verses } = useSelector(selectQuote);
   const [column, setColumn] = useState(null);
   const [row, setRow] = useState(null);
   const [num, setNum] = useState(null);
-  const [verses, setVerses] = useState(null);
+  const [numVerses, setNumVerses] = useState(null);
 
   useEffect(() => {
     const calc = Math.floor(Math.sqrt(props.numVerses));
     setNum(calc * calc === props.numVerses ? calc : calc + 1);
-    setVerses([...Array(props.numVerses)].map((v, i) => i + 1));
+    setNumVerses([...Array(props.numVerses)].map((v, i) => i + 1));
   }, [props.numVerses])
 
   useEffect(() => {
@@ -26,24 +31,20 @@ const NumVerses = (props) => {
     setRow(num);
   }, [num])
 
-  const GridContainer = styled.div`
-    grid-template-columns: repeat(${(props) => props.column}, 1fr);
-    grid-template-rows: repeat(${(props) => props.row}, 1fr);
-  `;
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const verse = Number(e.target.innerText);
-    const text = quote.verses[verse - 1].text;
+    const text = verses[verse - 1].text;
     dispatch(updateQuote({
-      ...quote,
+      book,
+      chapter,
       verse,
       text
     }))
     localStorage.setItem('quote', JSON.stringify(
       {
-        'book': quote.book.label,
-        'chapter': quote.chapter,
+        'book': book.label,
+        'chapter': chapter,
         'verse': verse,
         'text': text
       }
@@ -54,7 +55,7 @@ const NumVerses = (props) => {
     <div className="num-verses">
       <div className="main">
         <GridContainer column={column} row={row} className="grid-container">
-          {verses?.map((x) =>
+          {numVerses?.map((x) =>
             <div
               key={x}
               className={`verse ${x === props.verse ? 'selected-verse' : ''}`}

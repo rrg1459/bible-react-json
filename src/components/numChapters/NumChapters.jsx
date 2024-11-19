@@ -6,11 +6,16 @@ import { changeVerses, updateQuote } from '../../redux/quoteSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { verses } from '../../bible/verses';
 
+const GridContainer = styled.div`
+    grid-template-columns: repeat(${(props) => props.column}, 1fr);
+    grid-template-rows: repeat(${(props) => props.row}, 1fr);
+  `;
+
 const NumChapters = (props) => {
 
   const dispatch = useDispatch();
-  const { quote } = useSelector((state) => state);
-
+  const selectQuote = (state) => state.quote;
+  const { book } = useSelector(selectQuote);
   const [column, setColumn] = useState(null);
   const [row, setRow] = useState(null);
   const [num, setNum] = useState(null);
@@ -27,24 +32,19 @@ const NumChapters = (props) => {
     setRow(num);
   }, [num])
 
-  const GridContainer = styled.div`
-    grid-template-columns: repeat(${(props) => props.column}, 1fr);
-    grid-template-rows: repeat(${(props) => props.row}, 1fr);
-  `;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const chapter = Number(e.target.innerText);
-    const selectVerses = verses.filter((v) => v.book_id === quote.book.id && v.chapter === chapter);
+    const selectVerses = verses.filter((v) => v.book_id === book.id && v.chapter === chapter);
 
     dispatch(changeVerses(selectVerses));
     dispatch(updateQuote({
-      ...quote,
+      book,
       chapter,
       verse: 0
-    }))
-
-  }
+    }));
+  };
 
   return (
     <div className="num-verses">
@@ -52,8 +52,8 @@ const NumChapters = (props) => {
         <GridContainer column={column} row={row} className="grid-container">
           {chapters?.map((x) =>
             <div
-              key={x} 
-              className={`chapter ${x=== props.chapter ? 'selected-chapter' : ''}`}
+              key={x}
+              className={`chapter ${x === props.chapter ? 'selected-chapter' : ''}`}
               onClick={handleSubmit}
             >
               {x}
