@@ -22,8 +22,8 @@ const NumChapters = (props) => {
   const [chapters, setChapters] = useState(null);
 
   useEffect(() => {
-    const calc = Math.floor(Math.sqrt(props.numChapters));
-    setNum(calc * calc === props.numChapters ? calc : calc + 1);
+    const calc = Math.ceil(Math.sqrt(props.numChapters));
+    setNum(calc > 8 ? 8 : calc);
     setChapters([...Array(props.numChapters)].map((v, i) => i + 1));
   }, [props.numChapters])
 
@@ -31,7 +31,6 @@ const NumChapters = (props) => {
     setColumn(num);
     setRow(num);
   }, [num])
-
 
   const handleSubmit = (e) => {
     e.preventDefault();

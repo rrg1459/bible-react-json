@@ -21,8 +21,9 @@ const NumVerses = (props) => {
   const [numVerses, setNumVerses] = useState(null);
 
   useEffect(() => {
-    const calc = Math.floor(Math.sqrt(props.numVerses));
-    setNum(calc * calc === props.numVerses ? calc : calc + 1);
+
+    const calc = Math.ceil(Math.sqrt(props.numVerses));
+    setNum(calc > 8 ? 8 : calc);
     setNumVerses([...Array(props.numVerses)].map((v, i) => i + 1));
   }, [props.numVerses])
 
