@@ -44,7 +44,7 @@ const NumVerses = (props) => {
     }))
     localStorage.setItem('quote', JSON.stringify(
       {
-        'book': book.label,
+        'book': book.label[language],
         'chapter': chapter,
         'verse': verse,
         'text': text
