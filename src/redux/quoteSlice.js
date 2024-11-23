@@ -5,15 +5,16 @@ const initialState = {
   book: {
     id: 0,
     testament: "",
-    label: "",
-    abbreviation: "",
+    label: [],
+    abbreviation: [],
     chapters: 0,
     type: ""
   },
   chapter: 0,
   verse: 0,
   text: "",
-  verses: []
+  verses: [],
+  wasRead: false
 };
 
 export const quoteSlice = createSlice({
@@ -28,11 +29,17 @@ export const quoteSlice = createSlice({
       state.verse = verse;
       state.text = text;
     },
+    updateLanguage: (state, action) => {
+      state.language = action.payload;
+    },
     changeVerses: (state, action) => {
       state.verses = action.payload;
+    },
+    updateRead: (state, action) => {
+      state.wasRead = action.payload;
     },
   },
 });
 
-export const { updateQuote, changeVerses } = quoteSlice.actions;
+export const { updateQuote, changeVerses, updateLanguage, updateRead } = quoteSlice.actions;
 export default quoteSlice.reducer;
