@@ -3,24 +3,26 @@
   margin: 100px 200px 0 200px;
   justify-content: center;
   text-align: center;
+  font-size: 36px;
 
   .italic {
     font-style: italic;
   }
 
   .letter {
-    font-size: 32px;
+    // font-size: 32px;
     color: #333;
-    -webkit-text-stroke: 1px #282828;
-    text-shadow: 0px 1px 4px #23430C;
+    // -webkit-text-stroke: 1px #282828;
+    // text-shadow: 0px 1px 4px blue;
 
   }
 
   .actual {
     color: #333;
-    font-size: 40px;
-    -webkit-text-stroke: 1px #282828;
-    text-shadow: 0px 4px 4px red;
+    // -webkit-text-stroke: 1px #282828;
+    // text-shadow: 0px 4px 4px red;
+    background-color: rgb(132, 255, 255);
+    border: 1px solid rgb(149, 150, 255);
   }
 
 }
