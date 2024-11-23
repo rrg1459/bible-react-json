@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useKeyPress } from "@uidotdev/usehooks";
 import NumChapters from "../../components/numChapters/NumChapters.jsx"
 import NumVerses from "../../components/numVerses/NumVerses.jsx"
@@ -11,7 +11,11 @@ import './show.scss';
 const Show = () => {
 
   const selectQuote = (state) => state.quote;
-  const { book, verses, chapter, verse } = useSelector(selectQuote);
+  const { language, book, verses, chapter, verse } = useSelector(selectQuote);
+
+  useEffect(() => {
+    document.title = language === 1 ? 'Reina Valera 1920' : 'King James Version'
+  }, [language])
 
   const [activeKey, setActiveKey] = useState("");
 
@@ -32,7 +36,7 @@ const Show = () => {
 
   return (
     <>
-    {(vowels.includes(activeKey)) && <RefreshLanguage activeKey={activeKey} />}
+      {(vowels.includes(activeKey)) && <RefreshLanguage activeKey={activeKey} />}
       <div className="show">
         <div className="parent">
           <div className="verses">

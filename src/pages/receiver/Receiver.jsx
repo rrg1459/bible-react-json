@@ -22,6 +22,10 @@ function Receiver() {
     setLengthVerse(verse?.text.split(' ').length);
   }, [verse]);
 
+  useEffect(() => {
+    document.title = verse.language === 0 ? 'King James Version' : 'Reina Valera 1960';
+  }, [verse])
+
   useKeyPress("ArrowRight", onKeyPress);
   useKeyPress("ArrowLeft", onKeyPress);
   useKeyPress("ArrowUp", onKeyPress);
