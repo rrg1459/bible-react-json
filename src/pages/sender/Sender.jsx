@@ -98,7 +98,7 @@ function Sender() {
         'book': book.label,
         'chapter': currentVerse.chapter,
         'verse': currentVerse.verse,
-        'text': currentVerse.text
+        'text': currentVerse.text[1]
       }
     ));
   }, [currentVerse, book])
@@ -165,7 +165,7 @@ function Sender() {
         <>
           <br />
           <hr />
-          <h2>{currentVerse.text}</h2>
+          <h2>{currentVerse.text[1]}</h2>
           <h4>{book?.label} {chapter}:{currentVerse.verse}</h4>
         </>
       )}

@@ -9,7 +9,7 @@ const Book = (props) => {
 
   const dispatch = useDispatch();
   const selectQuote = (state) => state.quote;
-  const { book } = useSelector(selectQuote);
+  const { book, language } = useSelector(selectQuote);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,8 +20,8 @@ const Book = (props) => {
       book: {
         id: props.book.id,
         testament,
-        label: props.book.label,
-        abbreviation: props.book.abbreviation,
+        label: props.book.label[language],
+        abbreviation: props.book.abbreviation[language],
         chapters: props.book.chapters,
         type: type.label
       },
@@ -41,10 +41,10 @@ const Book = (props) => {
           onClick={handleSubmit}
         >
           <div className="abbreviation">
-            {props.book.abbreviation}
+            {props.book.abbreviation[language]}
           </div>
           <div className="label">
-            {props.book.label}
+            {props.book.label[language]}
           </div>
         </div>
       )}

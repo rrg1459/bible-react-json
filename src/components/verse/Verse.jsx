@@ -7,7 +7,7 @@ const Verse = (props) => {
 
   const dispatch = useDispatch();
   const selectQuote = (state) => state.quote;
-  const { book, chapter } = useSelector(selectQuote);
+  const { book, chapter, language } = useSelector(selectQuote);
   const { currentVerse, verse, index } = props;
   const [numVerse, setNumverse] = useState(null);
 
@@ -22,14 +22,14 @@ const Verse = (props) => {
       book,
       chapter,
       verse: numVerse,
-      text:  currentVerse.text
+      text:  currentVerse.text[language]
     }))
     localStorage.setItem('quote', JSON.stringify(
       {
         'book': book.label,
         'chapter': chapter,
         'verse': numVerse,
-        'text': currentVerse.text
+        'text': currentVerse.text[language]
       }
     ));
   };
@@ -44,7 +44,7 @@ const Verse = (props) => {
       className={`${(verse === index + 1) ? 'current-verse' : 'verse'}`}
       onClick={handleSubmit}
       >
-      {index + 1}. {currentVerse.text}
+      {index + 1}. {currentVerse.text[language]}
     </div>
   );
 };

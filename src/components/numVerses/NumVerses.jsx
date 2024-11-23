@@ -14,7 +14,7 @@ const NumVerses = (props) => {
 
   const dispatch = useDispatch();
   const selectQuote = (state) => state.quote;
-  const { book, chapter, verses } = useSelector(selectQuote);
+  const { book, chapter, verses, language } = useSelector(selectQuote);
   const [column, setColumn] = useState(null);
   const [row, setRow] = useState(null);
   const [num, setNum] = useState(null);
@@ -35,7 +35,7 @@ const NumVerses = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const verse = Number(e.target.innerText);
-    const text = verses[verse - 1].text;
+    const text = verses[verse - 1].text[language];
     dispatch(updateQuote({
       book,
       chapter,

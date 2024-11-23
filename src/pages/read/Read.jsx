@@ -38,8 +38,8 @@ const Read = () => {
   useEffect(() => {
     if (!chapterVerses.length) return; // Early return if no verses
     const selectedVerse = chapterVerses.find((v) => v.verse === verse);
-    setActualVerse(selectedVerse?.text.split(' ') || ''); // Use optional chaining for safety
-    setLengthVerse(selectedVerse?.text.split(' ').length);
+    setActualVerse(selectedVerse?.text[0].split(' ') || ''); // Use optional chaining for safety
+    setLengthVerse(selectedVerse?.text[0].split(' ').length);
   }, [verse, chapterVerses]);
 
   useKeyPress("ArrowRight", onKeyPress);
@@ -85,7 +85,5 @@ const Read = () => {
     </>
   );
 };
-
-
 
 export default Read;

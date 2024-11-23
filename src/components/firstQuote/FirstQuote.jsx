@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { books } from "../../bible/books"
 import { types } from "../../bible/types"
 import { verses } from "../../bible/verses"
@@ -8,6 +8,8 @@ import { updateQuote, changeVerses } from "../../redux/quoteSlice";
 const FirstQuote = () => {
 
   const dispatch = useDispatch();
+  const selectQuote = (state) => state.quote;
+  const { language } = useSelector(selectQuote);
 
   useEffect(() => {
     const getRandomVerse = async () => {
@@ -27,21 +29,21 @@ const FirstQuote = () => {
         book: {
           id: book.id,
           testament,
-          label: book.label,
-          abbreviation: book.abbreviation,
+          label: book.label[language],
+          abbreviation: book.abbreviation[language],
           chapters: book.chapters,
           type: type.label
         },
         chapter: verse.chapter,
         verse: verse.verse,
-        text: verse.text
+        text: verse.text[language]
       }));
 
       dispatch(changeVerses(selectVerses));
     };
 
     getRandomVerse();
-  }, [dispatch]); // Only re-run when dispatch changes
+  }, [dispatch, language]); // Only re-run when dispatch changes
 
 };
 
