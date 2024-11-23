@@ -20,8 +20,8 @@ const Book = (props) => {
       book: {
         id: props.book.id,
         testament,
-        label: props.book.label[language],
-        abbreviation: props.book.abbreviation[language],
+        label: props.book.label,
+        abbreviation: props.book.abbreviation,
         chapters: props.book.chapters,
         type: type.label
       },
