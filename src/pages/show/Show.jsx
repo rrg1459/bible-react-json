@@ -19,12 +19,12 @@ const Show = () => {
 
   const [activeKey, setActiveKey] = useState("");
 
-  const vowels = ['e', 'E', 'i', 'I'];
+  const vowels = ['s', 'S', 'e', 'E'];
 
+  useKeyPress("s", onKeyPress);
+  useKeyPress("S", onKeyPress);
   useKeyPress("e", onKeyPress);
   useKeyPress("E", onKeyPress);
-  useKeyPress("i", onKeyPress);
-  useKeyPress("I", onKeyPress);
 
   function onKeyPress(e) {
     e.preventDefault();
