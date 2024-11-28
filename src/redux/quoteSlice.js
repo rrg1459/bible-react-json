@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// language: 0 English version
+// language: 1 Spanish version
 const initialState = {
-  language: 1,
+  language: 0,
   book: {
     id: 0,
     testament: "",
