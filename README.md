@@ -23,7 +23,7 @@ For free download and use by any church interested in facilitating the reading o
 
 ### Pages
 
-Open [http://localhost:3000/sender](http://localhost:3000/sender) to select verses.
+Open [http://localhost:3000](http://localhost:3000) to select verses.
 
 In this page:
 * Just press the S key to switch to Spanish.
